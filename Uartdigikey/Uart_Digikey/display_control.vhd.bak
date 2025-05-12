@@ -1,0 +1,33 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity display_control is
+    port (
+        hex_inputs : in  std_logic_vector(11 downto 0); -- 12 bits for 3 digits
+        seg_outputs: out std_logic_vector(20 downto 0) -- 3 x 7 segments
+    );
+end entity display_control;
+
+architecture rtl of display_control is
+begin
+    process(hex_inputs)
+    begin
+        -- Decode each digit separately
+        for i in 0 to 2 loop
+            case hex_inputs((i+1)*4-1 downto i*4) is
+                when "0000" => seg_outputs((i*7+6) downto (i*7)) <= "1000000"; -- 0
+                when "0001" => seg_outputs((i*7+6) downto (i*7)) <= "1111001"; -- 1
+                when "0010" => seg_outputs((i*7+6) downto (i*7)) <= "0100100"; -- 2
+                when "0011" => seg_outputs((i*7+6) downto (i*7)) <= "0110000"; -- 3
+                when "0100" => seg_outputs((i*7+6) downto (i*7)) <= "0011001"; -- 4
+                when "0101" => seg_outputs((i*7+6) downto (i*7)) <= "0010010"; -- 5
+                when "0110" => seg_outputs((i*7+6) downto (i*7)) <= "0000010"; -- 6
+                when "0111" => seg_outputs((i*7+6) downto (i*7)) <= "1111000"; -- 7
+                when "1000" => seg_outputs((i*7+6) downto (i*7)) <= "0000000"; -- 8
+                when "1001" => seg_outputs((i*7+6) downto (i*7)) <= "0010000"; -- 9
+                when others => seg_outputs((i*7+6) downto (i*7)) <= "1111111"; -- OFF
+            end case;
+        end loop;
+    end process;
+end architecture rtl;

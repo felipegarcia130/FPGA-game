@@ -1,0 +1,161 @@
+------------------------------------------------------------
+Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'CLOCK_50'
+Slack : -14.003
+TNS   : -22903.450
+
+Type  : Slow 1200mV 85C Model Setup 'gumnut_with_mem:gumnut|gumnut:core|GPR_r2[0]'
+Slack : -13.250
+TNS   : -199.949
+
+Type  : Slow 1200mV 85C Model Setup 'pll|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -5.661
+TNS   : -161.840
+
+Type  : Slow 1200mV 85C Model Hold 'gumnut_with_mem:gumnut|gumnut:core|GPR_r2[0]'
+Slack : -6.764
+TNS   : -7.236
+
+Type  : Slow 1200mV 85C Model Hold 'pll|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.308
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'CLOCK_50'
+Slack : 0.309
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'pll|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -4.514
+TNS   : -146.825
+
+Type  : Slow 1200mV 85C Model Recovery 'CLOCK_50'
+Slack : -0.811
+TNS   : -12.234
+
+Type  : Slow 1200mV 85C Model Removal 'CLOCK_50'
+Slack : 0.674
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'pll|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 3.504
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'gumnut_with_mem:gumnut|gumnut:core|GPR_r2[0]'
+Slack : -5.282
+TNS   : -1359.549
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -2970.016
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'pll|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 12.228
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -12.657
+TNS   : -20727.447
+
+Type  : Slow 1200mV 0C Model Setup 'gumnut_with_mem:gumnut|gumnut:core|GPR_r2[0]'
+Slack : -11.918
+TNS   : -183.774
+
+Type  : Slow 1200mV 0C Model Setup 'pll|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -4.617
+TNS   : -130.352
+
+Type  : Slow 1200mV 0C Model Hold 'gumnut_with_mem:gumnut|gumnut:core|GPR_r2[0]'
+Slack : -6.142
+TNS   : -6.681
+
+Type  : Slow 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.280
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'pll|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.280
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'pll|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -3.561
+TNS   : -115.174
+
+Type  : Slow 1200mV 0C Model Recovery 'CLOCK_50'
+Slack : -0.640
+TNS   : -8.892
+
+Type  : Slow 1200mV 0C Model Removal 'CLOCK_50'
+Slack : 0.633
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'pll|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 2.771
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'gumnut_with_mem:gumnut|gumnut:core|GPR_r2[0]'
+Slack : -4.667
+TNS   : -1211.800
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -2970.016
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'pll|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 12.212
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Setup 'gumnut_with_mem:gumnut|gumnut:core|GPR_r2[0]'
+Slack : -6.977
+TNS   : -103.109
+
+Type  : Fast 1200mV 0C Model Setup 'CLOCK_50'
+Slack : -6.586
+TNS   : -9973.812
+
+Type  : Fast 1200mV 0C Model Setup 'pll|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -2.315
+TNS   : -65.215
+
+Type  : Fast 1200mV 0C Model Hold 'gumnut_with_mem:gumnut|gumnut:core|GPR_r2[0]'
+Slack : -3.402
+TNS   : -3.402
+
+Type  : Fast 1200mV 0C Model Hold 'pll|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 0.140
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'CLOCK_50'
+Slack : 0.141
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'pll|altpll_component|auto_generated|pll1|clk[0]'
+Slack : -1.808
+TNS   : -57.992
+
+Type  : Fast 1200mV 0C Model Recovery 'CLOCK_50'
+Slack : 0.081
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'CLOCK_50'
+Slack : 0.305
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'pll|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 1.634
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'CLOCK_50'
+Slack : -3.000
+TNS   : -2839.045
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'gumnut_with_mem:gumnut|gumnut:core|GPR_r2[0]'
+Slack : -2.349
+TNS   : -520.995
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'pll|altpll_component|auto_generated|pll1|clk[0]'
+Slack : 12.248
+TNS   : 0.000
+
+------------------------------------------------------------

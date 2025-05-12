@@ -1,0 +1,37 @@
+			text
+			org 0x000 ; start here on reset
+			jmp main
+; Data memory layout
+			data
+TX_DATA:	bss 1
+TX_START:	bss 1
+KEY1:		bss 1
+jump_data:	byte 1
+tx_disable: byte 1
+; Main program
+			text
+			org 0x010
+main: 		inp r1, KEY1
+			;jsb delay
+			and r1, r1, 1
+			bz main
+			ldm r2, jump_data
+			out r2, TX_DATA
+			out r0, TX_START
+			ldm r2, tx_disable
+			out r2, TX_START
+			jmp main			
+delay:		add r7, r0, 0
+again3:		add r6, r0, 0
+again2:		add r5, r0, 0
+again1:		add r5, r5, 1
+			sub r0, r5, 0xFF
+			bnz again1
+			add r6, r6, 1
+			sub r0, r6, 0xFF
+			bnz again2
+			add r7, r7, 1
+			sub r0, r7, 0x0C
+			bnz again3
+			ret
+			

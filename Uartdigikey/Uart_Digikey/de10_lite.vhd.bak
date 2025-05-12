@@ -1,0 +1,28 @@
+LIBRARY 	ieee;
+USE		ieee.std_logic_1164.all;
+
+ENTITY de10_lite IS
+	PORT(	CLOCK_50		: IN	std_logic;
+			KEY			: IN	std_logic_vector(1 DOWNTO 0);
+			SW				: IN	std_logic_vector(9 DOWNTO 0);
+			GPIO_24		: IN	std_logic;	--RX
+			GPIO_25		: OUT std_logic;	--TX
+			LDER			: OUT std_logic_vector(9 DOWNTO 0)
+	);
+END;
+
+ARCHITECTURE Structural OF de10_lite IS
+
+SIGNAL dly_rst: std_logic;
+SIGNAL spi_clk: std_logic;
+SIGNAL spi_clk_out: std_logic;
+SIGNAL data_x:	std_logic_vector(15 DOWNTO 0);
+
+BEGIN
+
+
+
+				--Led
+led		: led_driver 	PORT MAP( not dly_rst, CLOCK_50, data_x(9 DOWNTO 0), GSENSOR_INT(0), LEDR );
+
+END Structural;

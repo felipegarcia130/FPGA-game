@@ -1,0 +1,118 @@
+			text
+			org 0x000 ; start here on reset
+			jmp main
+; Data memory layout
+			data
+TX_DATA:	bss 1
+TX_START:	bss 1
+KEY1:		bss 1
+SW:			bss 1
+LED:		bss 1
+Cosechas:	bss 1
+display:	bss 1
+jump_data:	byte 0x01
+jump_data2: byte 0x02
+jump_data3: byte 0x03
+jump_data4: byte 0x04
+jump_data5: byte 0x05
+tx_disable: byte 1
+; Main program
+            text
+            org 0x010
+main:     
+	inp r1, KEY1           
+	and r1, r1, 1         
+    bnz boton
+	inp r1, SW
+	and r1, r1, 1         
+    bnz switch0
+	inp r1, LED
+	and r0,r1, 16
+	bnz boton
+	and r0,r1, 48
+	bnz boton
+	and r0, r1, 32
+	bnz boton
+	and r0, r1, 64
+	bnz acc_left
+	and r0, r1, 96         
+	bnz acc_left
+	and r0, r1, 128
+    bnz acc_left
+	and r0, r1, 192         
+	bnz acc_left
+	inp r1, LED
+	and r0, r1, 1         
+	bnz acc_right
+	and r0, r1, 2         
+	bnz acc_right
+	and r0, r1, 4
+	bnz acc_right
+	and r0, r1, 6
+    bnz acc_right
+	and r0,r1, 8
+	bnz acc_right
+	inp r1, SW
+	and r1, r1, 2          
+	bnz switch1
+	inp r1, Cosechas
+	jmp DisCos
+
+boton:
+			ldm r2, jump_data       ; Load the data to be sent if KEY1 is pressed
+			out r2, TX_DATA          ; Output the data to TX_DATA
+			out r0, TX_START         ; Trigger the transmission
+			ldm r2, tx_disable       ; Load the transmission disable value
+			out r2, TX_START         ; Disable transmission
+			jmp main         ; Return to start of polling loop
+	
+switch0: 
+			ldm r2, jump_data2        ; Load the data to be sent if SW0 is pressed
+			out r2, TX_DATA          ; Output the data to TX_DATA
+			out r0, TX_START         ; Trigger the transmission
+			ldm r2, tx_disable       ; Load the transmission disable value
+			out r2, TX_START         ; Disable transmission
+			jmp main        ; Return to start of polling loop
+
+acc_left:
+			ldm r2, jump_data3        ; Load the data to be sent if SW1 is pressed
+			out r2, TX_DATA          ; Output the data to TX_DATA
+			out r0, TX_START         ; Trigger the transmission
+			ldm r2, tx_disable       ; Load the transmission disable value
+			out r2, TX_START         ; Disable transmission
+			jmp main        ; Return to start of polling loop
+
+acc_right:
+			ldm r2, jump_data4        ; Load the data to be sent if SW2 is pressed
+			out r2, TX_DATA          ; Output the data to TX_DATA
+			out r0, TX_START         ; Trigger the transmission
+			ldm r2, tx_disable       ; Load the transmission disable value
+			out r2, TX_START         ; Disable transmission
+			jmp main        ; Return to start of polling loop
+	
+switch1: 
+			ldm r2, jump_data5        ; Load the data to be sent if SW3 is pressed
+			out r2, TX_DATA          ; Output the data to TX_DATA
+			out r0, TX_START         ; Trigger the transmission
+			ldm r2, tx_disable       ; Load the transmission disable value
+			out r2, TX_START         ; Disable transmission
+			jmp main        ; Return to start of polling loop
+
+DisCos: 	ldm r2, Cosechas
+			out r2, display
+
+delay:		add r7, r0, 0
+again3:		add r6, r0, 0
+again2:		add r5, r0, 0
+again1:		add r5, r5, 1
+			sub r0, r5, 0xFF
+			bnz again1
+			add r6, r6, 1
+			sub r0, r6, 0xFF
+			bnz again2
+			add r7, r7, 1
+			sub r0, r7, 0x0C
+			bnz again3
+			ret
+
+			
