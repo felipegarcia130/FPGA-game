@@ -8,3 +8,4 @@
 *.yaml text eol=lf
 *.launch text eol=lf
 *.md text eol=lf
+*.resS filter=lfs diff=lfs merge=lfs -text
